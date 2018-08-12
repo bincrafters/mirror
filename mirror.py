@@ -117,6 +117,7 @@ if __name__ == '__main__':
         request['import_url'] = gh_project_url
         request['mirror'] = True
         request['mirror_user_id'] = user_id
+        request['visibility'] = 'public'
         r = requests.put('%s/projects/%s' % (gitlab_endpoint, gl_id), headers=gitlab_headers, data=json.dumps(request))
         if r.status_code != 200:
             raise Exception('GitLab PUT request failed %s %s' % (r.status_code, r.content))
